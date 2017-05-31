@@ -127,6 +127,7 @@ function start_mon {
     ceph-mon --setuser ceph --setgroup ceph --cluster ${CLUSTER} --mkfs -i ${MON_NAME} --inject-monmap $MONMAP --keyring $MON_KEYRING --mon-data "$MON_DATA_DIR"
   else
     log "Existing mon, trying to rejoin cluster..."
+    timeout 5 ceph ${CLI_OPTS} mon getmap -o $MONMAP || true
     ceph-mon --setuser ceph --setgroup ceph --cluster ${CLUSTER} -i ${MON_NAME} -c /etc/ceph/${CLUSTER}.conf --keyring $MON_KEYRING --mon-data "$MON_DATA_DIR"
     timeout 7 ceph ${CLI_OPTS} mon add "${MON_NAME}" "${MON_IP}:6789" || true
   fi
