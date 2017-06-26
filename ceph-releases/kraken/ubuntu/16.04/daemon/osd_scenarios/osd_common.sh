@@ -28,7 +28,7 @@ start_osd() {
    echo "${CLUSTER}-${OSD_ID}: /usr/bin/ceph-osd ${CLI_OPTS} -f -i ${OSD_ID} --setuser ceph --setgroup disk" | tee -a /etc/forego/"${CLUSTER}"/Procfile
   else
    log "SUCCESS"
-   exec /usr/bin/ceph-osd "${CLI_OPTS[@]}" -f -i "${OSD_ID}" --setuser ceph --setgroup disk
+   exec /usr/bin/ceph-osd "${CLI_OPTS[@]}" -d -i "${OSD_ID}" --setuser ceph --setgroup disk
   fi
 }
 
