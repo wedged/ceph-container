@@ -1,0 +1,1 @@
+../../../../../jewel/ubuntu/14.04/daemon/osd_scenarios/osd_disk_activate.sh

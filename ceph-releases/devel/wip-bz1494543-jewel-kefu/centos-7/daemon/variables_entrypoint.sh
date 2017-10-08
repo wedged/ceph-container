@@ -1,0 +1,1 @@
+../../../../jewel/ubuntu/14.04/daemon/variables_entrypoint.sh
